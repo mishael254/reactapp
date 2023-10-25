@@ -1,24 +1,24 @@
 import { Fragment } from "react";
 import { useState } from "react";
 
-function ListGroup() {
 
-    let listOfItems = [
-        'Japan',
-        'China',
-        'Kenya',
-        'United-States'
-    ]
+interface ListGroupProps {
+  listOfItems:string[];
+  heading: string;
+}
+function ListGroup(listgroupprops: ListGroupProps) {
+
+    
    
     const[selectedItem, setSelectedItem] = useState(-1);
    
-    
+       
   return (
     <Fragment>
-        <h1>List of Countries</h1>
+        <h1>{listgroupprops.heading}</h1>
         
         <ul className="list-group">
-            {listOfItems.map((item , index) => <li className={selectedItem === index ? "list-group-item active" : "list-group-item"} key={item} onClick={()=>{setSelectedItem(index)}}>{item}</li>)}
+            {listgroupprops.listOfItems.map((item , index) => <li className={selectedItem === index ? "list-group-item active" : "list-group-item"} key={item} onClick={()=>{setSelectedItem(index)}}>{item}</li>)}
         </ul>
     </Fragment>
   );
