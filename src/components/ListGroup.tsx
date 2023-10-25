@@ -5,6 +5,7 @@ import { useState } from "react";
 interface ListGroupProps {
   listOfItems:string[];
   heading: string;
+  onSelectItem: (item: string)=> void;
 }
 function ListGroup(listgroupprops: ListGroupProps) {
 
@@ -18,7 +19,7 @@ function ListGroup(listgroupprops: ListGroupProps) {
         <h1>{listgroupprops.heading}</h1>
         
         <ul className="list-group">
-            {listgroupprops.listOfItems.map((item , index) => <li className={selectedItem === index ? "list-group-item active" : "list-group-item"} key={item} onClick={()=>{setSelectedItem(index)}}>{item}</li>)}
+            {listgroupprops.listOfItems.map((item , index) => <li className={selectedItem === index ? "list-group-item active" : "list-group-item"} key={item} onClick={()=>{setSelectedItem(index);listgroupprops.onSelectItem(item)} }>{item}</li>)}
         </ul>
     </Fragment>
   );
