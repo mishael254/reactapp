@@ -3,7 +3,14 @@ import ListGroup from './components/ListGroup';
 
 function App(){
 
-  return <div> <ListGroup></ListGroup></div>
+  let listOfItems = [
+    'Japan',
+    'China',
+    'Kenya',
+    'United-States'
+]
+
+  return <div> <ListGroup listOfItems={listOfItems} heading='Cities'></ListGroup></div>
   
 
 }
